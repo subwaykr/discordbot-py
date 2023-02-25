@@ -24,6 +24,16 @@ async def on_message(message):
 
     if message.content.startswith(f'{PREFIX}안녕하세요!'):
         await message.channel.send('금천구에 오신걸 환영합니다!')
+        
+@bot.event
+async def on_member_join(member):
+    await member.guild.get_channel(1069624743944278179).send(member.mention + "님! 여기는 서울특별시 금천구 입니다. 환영합니다!")
+    return
+
+@bot.event
+async def on_member_remove(member):
+    await member.guild.get_channel(1078978489836896318).send(member.mention + "님, 서울특별시 금천구 였습니다. 안녕히가십시오!")
+    return
 
 
 try:
